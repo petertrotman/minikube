@@ -22,6 +22,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"strings"
 
 	"github.com/spf13/viper"
 	"k8s.io/minikube/pkg/minikube/constants"
@@ -87,4 +88,9 @@ func GetMachineName() string {
 		return constants.DefaultMachineName
 	}
 	return viper.GetString(MachineProfile)
+}
+
+// GetNodeName gets the node name for the VM
+func GetNodeName() string {
+	return strings.Replace(GetMachineName(), " ", "-", -1)
 }

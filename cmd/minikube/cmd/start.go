@@ -201,7 +201,7 @@ func runStart(cmd *cobra.Command, args []string) {
 	kubernetesConfig := cfg.KubernetesConfig{
 		KubernetesVersion:      selectedKubernetesVersion,
 		NodeIP:                 ip,
-		NodeName:               constants.DefaultNodeName,
+		NodeName:               cfg.GetNodeName(),
 		APIServerName:          viper.GetString(apiServerName),
 		APIServerNames:         apiServerNames,
 		APIServerIPs:           apiServerIPs,
